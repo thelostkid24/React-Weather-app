@@ -6,29 +6,19 @@ import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 const TempAndDetails = ({
   weather: {
-    details = "No details available", // Default value for details
+    details,
     icon,
-    temp = 0,
-    temp_min = 0,
-    temp_max = 0,
-    sunrise = 0,
-    sunset = 0,
-    speed = 0,
-    humidity = 0,
-    feels_like = 0,
+    temp,
+    temp_min,
+    temp_max,
+    sunrise,
+    sunset,
+    speed,
+    humidity,
+    feels_like,
   },
   units,
 }) => {
-  // Helper function to convert Unix timestamp to local time
-  const formatTime = (timestamp) => {
-    const date = new Date(timestamp * 1000); // Convert to milliseconds
-    const hours = date.getHours();
-    const minutes = `0${date.getMinutes()}`.slice(-2); // Ensures two digits
-    const ampm = hours >= 12 ? "PM" : "AM";
-    const adjustedHour = hours % 12 || 12; // Adjust to 12-hour format
-    return `${adjustedHour}:${minutes} ${ampm}`;
-  };
-
   const verticalDetails = [
     {
       id: 1,
@@ -55,13 +45,13 @@ const TempAndDetails = ({
       id: 1,
       Icon: GiSunrise,
       title: "Sunrise",
-      value: formatTime(sunrise), // Convert Unix time to human-readable format
+      value: sunrise,
     },
     {
       id: 2,
       Icon: GiSunset,
       title: "Sunset",
-      value: formatTime(sunset), // Convert Unix time to human-readable format
+      value: sunset,
     },
     {
       id: 3,
@@ -76,17 +66,14 @@ const TempAndDetails = ({
       value: `${temp_min.toFixed()}°`,
     },
   ];
-
   return (
     <div>
-      {/* Display weather details */}
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
         <p>{details}</p>
       </div>
 
-      {/* Display main temperature and vertical details */}
       <div className="flex flex-row items-center justify-between py-3">
-        <img src={icon} alt="Current weather icon" className="w-20" />
+        <img src={icon} alt="weather icon" className="w-20" />
         <p className="text-5xl">{`${temp.toFixed()}°`}</p>
 
         <div className="flex flex-col space-y-3 items-start">
@@ -103,7 +90,6 @@ const TempAndDetails = ({
         </div>
       </div>
 
-      {/* Display horizontal details */}
       <div className="flex flex-row items-center justify-center space-x-10 text-sm py-3">
         {horizontalDetails.map(({ id, Icon, title, value }) => (
           <div key={id} className="flex flex-row items-center">
