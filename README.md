@@ -26,7 +26,7 @@ Currently, two official plugins are available:
 
 <h2>3. Set Up Environment Variables</h2>
 
-<p>Create an .env file in the root directory to store your API key</p>
+<p>store your API key in .env file replace your_openweather_api_key with api key</p>
 
     REACT_APP_WEATHER_API_KEY=your_openweather_api_key
 
