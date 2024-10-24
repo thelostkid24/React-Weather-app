@@ -17,7 +17,7 @@ Currently, two official plugins are available:
 <p>To get a local copy of the project, clone the repository</p>
 
     git clone https://github.com/thelostkid24/React-Weather-app.git
-    cd React-Weather-App
+    cd React-Weather-app
 <h2>2. Install Dependencies</h2>
 
 <p>Navigate to the project root and install the necessary dependencies</p>
